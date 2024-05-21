@@ -1,5 +1,5 @@
 import ResponsiveAppBar from "./Componente/Header";
-import ColorInversionFooter from "./Componente/Footer";
+import Footer from "./Componente/Footer";
 
 
 const App:any = ()=> {
@@ -8,7 +8,7 @@ const App:any = ()=> {
   <div className="App">
     <ResponsiveAppBar/>
     
-    <ColorInversionFooter/>
+    <Footer/>
 
   </div>
   );

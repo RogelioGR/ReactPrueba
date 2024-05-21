@@ -1,104 +1,46 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import React from 'react';
+import { Box, Container, Grid, Typography, Link, IconButton } from '@mui/material';
+import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 
-import FacebookIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/X';
-
-const logoStyle = {
-  width: '100px',
-  height: 'auto',
-};
-
-function Copyright() {
+const Footer = () => {
   return (
-    <Typography variant="body2" color="text.secondary" mt={1}>
-      {'Copyright © '}
-      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
-      {new Date().getFullYear()}
-    </Typography>
-  );
-}
-
-export default function Footer() {
-  return (
-    <Container
+    <Box
+      component="footer"
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: { xs: 4, sm: 8 },
-        py: { xs: 8, sm: 10 },
-        textAlign: { sm: 'center', md: 'left' },
+        py: 3,
+        px: 2,
+        mt: 'auto',
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
       }}
     >
-
-     
-     
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          pt: { xs: 4, sm: 8 },
-          width: '100%',
-          borderTop: '1px solid',
-          borderColor: 'divider',
-        }}
-      >
-        <div>
-          <Link color="text.secondary" href="#">
-            Privacy Policy
-          </Link>
-          <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
-            &nbsp;•&nbsp;
-          </Typography>
-          <Link color="text.secondary" href="#">
-            Terms of Service
-          </Link>
-          <Copyright />
-        </div>
-        <Stack
-          direction="row"
-          justifyContent="left"
-          spacing={1}
-          useFlexGap
-          sx={{
-            color: 'text.secondary',
-          }}
-        >
-          <IconButton
-            color="inherit"
-            href="https://github.com/mui"
-            aria-label="GitHub"
-            sx={{ alignSelf: 'center' }}
-          >
-            <FacebookIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://twitter.com/MaterialUI"
-            aria-label="X"
-            sx={{ alignSelf: 'center' }}
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://www.linkedin.com/company/mui/"
-            aria-label="LinkedIn"
-            sx={{ alignSelf: 'center' }}
-          >
-            <LinkedInIcon />
-          </IconButton>
-        </Stack>
-      </Box>
-    </Container>
+      <Container maxWidth="lg">
+        <Grid container spacing={2} justifyContent="space-between" alignItems="center">
+          <Grid item xs={12} sm={6} md={6}>
+            <Typography variant="body2" color="text.secondary" align="left">
+              © {new Date().getFullYear()} Educacion Financiera. Derechos reservados.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box sx={{ display: 'flex', justifyContent: { xs: 'center', sm: 'flex-end' } }}>
+              <IconButton href="https://facebook.com" target="_blank" color="inherit">
+                <Facebook />
+              </IconButton>
+              <IconButton href="https://twitter.com" target="_blank" color="inherit">
+                <Twitter />
+              </IconButton>
+              <IconButton href="https://instagram.com" target="_blank" color="inherit">
+                <Instagram />
+              </IconButton>
+              <IconButton href="https://linkedin.com" target="_blank" color="inherit">
+                <LinkedIn />
+              </IconButton>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
-}
+};
+
+export default Footer;
