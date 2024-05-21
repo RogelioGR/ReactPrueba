@@ -1,145 +1,104 @@
 import * as React from 'react';
-import { ColorPaletteProp } from '@mui/joy/styles';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Box from '@mui/joy/Box';
-import IconButton from '@mui/joy/IconButton';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import Divider from '@mui/joy/Divider';
-import Input from '@mui/joy/Input';
-import List from '@mui/joy/List';
-import ListSubheader from '@mui/joy/ListSubheader';
-import ListItem from '@mui/joy/ListItem';
-import ListItemButton from '@mui/joy/ListItemButton';
-import Typography from '@mui/joy/Typography';
-import Sheet from '@mui/joy/Sheet';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import SendIcon from '@mui/icons-material/Send';
-import ColorLensRoundedIcon from '@mui/icons-material/ColorLensRounded';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
-export default function ColorInversionFooter() {
-  const [color, setColor] = React.useState<ColorPaletteProp>('neutral');
+import FacebookIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/X';
+
+const logoStyle = {
+  width: '100px',
+  height: 'auto',
+};
+
+function Copyright() {
   return (
-    <Sheet
-      variant="solid"
-      color={color}
-      invertedColors
+    <Typography variant="body2" color="text.secondary" mt={1}>
+      {'Copyright © '}
+      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
+      {new Date().getFullYear()}
+    </Typography>
+  );
+}
+
+export default function Footer() {
+  return (
+    <Container
       sx={{
-        ...(color !== 'neutral' && {
-          bgcolor: `${color}.800`,
-        }),
-        flexGrow: 1,
-        p: 2,
-        borderRadius: { xs: 0, sm: 'sm' },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: { xs: 4, sm: 8 },
+        py: { xs: 8, sm: 10 },
+        textAlign: { sm: 'center', md: 'left' },
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <IconButton
-          variant="soft"
-          size="sm"
-          onClick={() => {
-            const colors: ColorPaletteProp[] = [
-              'primary',
-              'neutral',
-              'danger',
-              'success',
-              'warning',
-            ];
-            const nextColorIndex = colors.indexOf(color) + 1;
-            setColor(colors[nextColorIndex] ?? colors[0]);
-          }}
-        >
-          <ColorLensRoundedIcon fontSize="small" />
-        </IconButton>
-        <Divider orientation="vertical" />
-        <IconButton variant="plain">
-          <FacebookRoundedIcon />
-        </IconButton>
-        <IconButton variant="plain">
-          <GitHubIcon />
-        </IconButton>
-        <Input
-          variant="soft"
-          placeholder="Type in your email"
-          type="email"
-          name="email"
-          endDecorator={
-            <IconButton variant="soft" aria-label="subscribe">
-              <SendIcon />
-            </IconButton>
-          }
-          sx={{ ml: 'auto', display: { xs: 'none', md: 'flex' } }}
-        />
-      </Box>
-      <Divider sx={{ my: 2 }} />
+
+     
+     
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: { md: 'flex-start' },
           justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: 2,
+          pt: { xs: 4, sm: 8 },
+          width: '100%',
+          borderTop: '1px solid',
+          borderColor: 'divider',
         }}
       >
-        <Card
-          variant="soft"
-          size="sm"
+        <div>
+          <Link color="text.secondary" href="#">
+            Privacy Policy
+          </Link>
+          <Typography display="inline" sx={{ mx: 0.5, opacity: 0.5 }}>
+            &nbsp;•&nbsp;
+          </Typography>
+          <Link color="text.secondary" href="#">
+            Terms of Service
+          </Link>
+          <Copyright />
+        </div>
+        <Stack
+          direction="row"
+          justifyContent="left"
+          spacing={1}
+          useFlexGap
           sx={{
-            flexDirection: { xs: 'row', md: 'column' },
-            minWidth: { xs: '100%', md: 'auto' },
-            gap: 1,
+            color: 'text.secondary',
           }}
         >
-          <AspectRatio
-            ratio="21/9"
-            minHeight={80}
-            sx={{ flexBasis: { xs: 200, md: 'initial' } }}
+          <IconButton
+            color="inherit"
+            href="https://github.com/mui"
+            aria-label="GitHub"
+            sx={{ alignSelf: 'center' }}
           >
-            <img alt="" src="/static/blog/mui-product-comparison/ecosystem.png" />
-          </AspectRatio>
-          <CardContent>
-            <Typography level="body-sm">Intro to the MUI ecosystem</Typography>
-            <Typography level="body-xs">Blog post</Typography>
-          </CardContent>
-        </Card>
-        <List
-          size="sm"
-          orientation="horizontal"
-          wrap
-          sx={{ flexGrow: 0, '--ListItem-radius': '8px' }}
-        >
-          <ListItem nested sx={{ width: { xs: '50%', md: 140 } }}>
-            <ListSubheader sx={{ fontWeight: 'xl' }}>Sitemap</ListSubheader>
-            <List>
-              <ListItem>
-                <ListItemButton>Services</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>Blog</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>About</ListItemButton>
-              </ListItem>
-            </List>
-          </ListItem>
-          <ListItem nested sx={{ width: { xs: '50%', md: 180 } }}>
-            <ListSubheader sx={{ fontWeight: 'xl' }}>Products</ListSubheader>
-            <List>
-              <ListItem>
-                <ListItemButton>Joy UI</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>Base UI</ListItemButton>
-              </ListItem>
-              <ListItem>
-                <ListItemButton>Material UI</ListItemButton>
-              </ListItem>
-            </List>
-          </ListItem>
-        </List>
+            <FacebookIcon />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            href="https://twitter.com/MaterialUI"
+            aria-label="X"
+            sx={{ alignSelf: 'center' }}
+          >
+            <TwitterIcon />
+          </IconButton>
+          <IconButton
+            color="inherit"
+            href="https://www.linkedin.com/company/mui/"
+            aria-label="LinkedIn"
+            sx={{ alignSelf: 'center' }}
+          >
+            <LinkedInIcon />
+          </IconButton>
+        </Stack>
       </Box>
-    </Sheet>
+    </Container>
   );
 }
