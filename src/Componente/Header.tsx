@@ -245,6 +245,7 @@ function ResponsiveAppBar() {
               fontWeight: 600,
               color: "black",
               textDecoration: "none",
+              fontSize: { xs: "1rem" },
             }}
           >
             Educacion Financiera
@@ -276,32 +277,32 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <Box
-  sx={{
-    flexGrow: 1,
-    display: { xs: "none", md: "flex" },
-    justifyContent: "end", 
-    gap: "8px", 
-  }}
->
-  {buttons.map((button) => (
-    <Button
-      key={button}
-      onClick={handleCloseNavMenu}
-      sx={{
-        my: 2,
-        color: "black",
-        display: "block",
-        textAlign: "center",
-        minWidth: "auto", 
-        padding: "8px 16px", 
-        textTransform: "lowercase",
-     
-      }}
-    >
-      {button}
-    </Button>
-  ))}
-</Box>
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "end",
+              gap: "8px",
+            }}
+          >
+            {buttons.map((button) => (
+              <Button
+                key={button}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "black",
+                  display: "block",
+                  textAlign: "center",
+                  minWidth: "auto",
+                  padding: "8px 16px",
+                  textTransform: "lowercase",
+
+                }}
+              >
+                {button}
+              </Button>
+            ))}
+          </Box>
 
         </Toolbar>
       </Container>

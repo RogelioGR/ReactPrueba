@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from "react";
 import { Box, Container, Grid, Typography, Link, IconButton } from '@mui/material';
 import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
 const Footer = () => {
@@ -9,8 +9,7 @@ const Footer = () => {
         py: 3,
         px: 2,
         mt: 'auto',
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'light' ? theme.palette.grey[500] : theme.palette.grey[900],
+        backgroundColor: '#EDEDED',
       }}
     >
       <Container maxWidth="lg">

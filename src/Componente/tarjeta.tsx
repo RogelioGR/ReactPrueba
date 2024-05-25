@@ -44,7 +44,7 @@ const FinanceTools = () => {
                     <Grid container spacing={3}>
                         {data.map((item, index) => (
                             <Grid item xs={12} sm={6} md={4} key={index}>
-                                <Card sx={{ padding: '20px', boxShadow: 3 ,  borderRadius: 4}}>
+                                <Card sx={{ padding: '20px', boxShadow: 3 ,  borderRadius: 4 , background: '#EDEDED', display:'flex'}}>
                                     <CardContent>
                                         <Avatar sx={{ backgroundColor: item.bgColor, margin: '0 auto 10px auto' }}>
                                             {item.icon}

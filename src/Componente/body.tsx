@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                     >
                         <Box sx={{ width: "100%", position: "relative" }}>
                             <img
-                                src="/prueba.jpg"
+                                src="/image_hero.webp"
                                 alt="Hero"
                                 style={{ width: "100%", borderRadius: "10px" }}
                             />
@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
                                 sx={{
                                     position: 'absolute',
                                     top: { xs: '5%', md: '10%' },
-                                    right: { xs: '-2%', md: '-5%' },
+                                    right: { xs: '-3%', md: '-5%' },
                                     p: 2,
                                     backgroundColor: 'white',
                                     borderRadius: '10px',
